@@ -1,0 +1,24 @@
+{
+    "name": "ilaion/file-utilities",
+    "description": "File utility package for common file operations",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FileUtilities\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FileUtilities\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
