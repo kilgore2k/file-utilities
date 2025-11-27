@@ -2,7 +2,7 @@
 	
 	declare(strict_types=1);
 	
-	namespace FileUtilities; // Updated namespace to match composer.json PSR-4 mapping
+	namespace Ilaion\FileUtilities; // Updated namespace to match composer.json PSR-4 mapping
 	
 	use RuntimeException;
 	

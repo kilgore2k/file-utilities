@@ -8,7 +8,7 @@
 	 * @author      : rbarel
 	 */
 	
-	namespace FileUtilities;
+	namespace Ilaion\FileUtilities;
 	
 	class FileUtilityHelper
 	{

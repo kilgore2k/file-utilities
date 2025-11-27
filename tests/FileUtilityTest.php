@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace FileUtilities\Tests;
+namespace Ilaion\FileUtilities\Tests;
 
 use FileUtilities\FileUtility;
 use PHPUnit\Framework\TestCase;
