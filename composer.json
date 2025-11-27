@@ -5,12 +5,12 @@
 	"license": "MIT",
 	"autoload": {
 		"psr-4": {
-			"FileUtilities\\": "src/"
+			"Ilaion\\FileUtilities\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"FileUtilities\\Tests\\": "tests/"
+			"Ilaion\\FileUtilities\\Tests\\": "tests/"
 		}
 	},
 	"require": {
