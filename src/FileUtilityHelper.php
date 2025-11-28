@@ -18,8 +18,13 @@
 		public static function buildPath(array $segments): string
 		{
 			$filtered = [];
-			foreach ($segments as $segment) {
-				$segment = trim((string)$segment, DIRECTORY_SEPARATOR);
+			foreach ($segments as $index => $segment) {
+				if ($index === 0) {
+					$segment = rtrim((string)$segment, DIRECTORY_SEPARATOR);
+				}
+				else {
+					$segment = trim((string)$segment, DIRECTORY_SEPARATOR);
+				}
 				if ($segment !== '') {
 					$filtered[] = $segment;
 				}
