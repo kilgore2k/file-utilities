@@ -3,11 +3,11 @@
 	"description": "File utility package for common file operations",
 	"type": "library",
 	"license": "MIT",
-	"autoload": {
-		"psr-4": {
-			"Ilaion\\FileUtilities\\": "src/"
-		}
-	},
+  "autoload": {
+    "psr-4": {
+      "Ilaion\\FileUtilities\\": "src/"
+    }
+  },
 	"autoload-dev": {
 		"psr-4": {
 			"Ilaion\\FileUtilities\\Tests\\": "tests/"
