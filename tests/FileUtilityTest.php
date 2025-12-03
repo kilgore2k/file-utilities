@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ilaion\FileUtilities\Tests;
 
-use FileUtilities\FileUtility;
+use Ilaion\FileUtilities\FileUtility;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
