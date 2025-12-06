@@ -2,7 +2,8 @@
 	
 	declare(strict_types=1);
 	
-	namespace Ilaion\FileUtilities; // Updated namespace to match composer.json PSR-4 mapping
+	namespace Ilaion\FileUtilities;
+	// Updated namespace to match composer.json PSR-4 mapping
 	
 	use RuntimeException;
 	
@@ -117,7 +118,7 @@
 				return true;
 			}
 			// Windows systems
-			if (substr($path, 1, 1) ===  ':') {
+			if (substr($path, 1, 1) === ':') {
 				return true;
 			}
 			
@@ -203,31 +204,31 @@
 		/**
 		 * Copy a file (single step)
 		 *
-		 * @param string $source Source file path (relative or absolute)
+		 * @param string $source      Source file path (relative or absolute)
 		 * @param string $destination Destination file path
-		 * @param bool $createDest Whether to create destination directories
+		 * @param bool   $createDest  Whether to create destination directories
 		 */
 		public function copy(string $source, string $destination, bool $createDest = false): bool
 		{
 			$sourcePath = $this->resolvePath($source);
 			$destPath   = $this->resolvePath($destination);
-	
+			
 			if (!file_exists($sourcePath)) {
 				throw new RuntimeException("Source file not found: {$sourcePath}");
 			}
-	
+			
 			$destDir = dirname($destPath);
 			if (!is_dir($destDir) && ($createDest || $this->options['create_directories'])) {
 				$this->mkdir($destDir, 0755, true);
 			}
-	
+			
 			if (!@copy($sourcePath, $destPath)) {
 				throw new RuntimeException("Failed to copy file from {$sourcePath} to {$destPath}");
 			}
-	
+			
 			return true;
 		}
-	
+		
 		/**
 		 * Move a file – tries rename, falls back to copy + delete.
 		 */
@@ -235,28 +236,28 @@
 		{
 			$sourcePath = $this->resolvePath($source);
 			$destPath   = $this->resolvePath($destination);
-	
+			
 			if (!file_exists($sourcePath)) {
 				throw new RuntimeException("Source file not found: {$sourcePath}");
 			}
-	
+			
 			$destDir = dirname($destPath);
 			if (!is_dir($destDir) && ($createDest || $this->options['create_directories'])) {
 				$this->mkdir($destDir, 0755, true);
 			}
-	
+			
 			// Try atomic rename first
 			if (@rename($sourcePath, $destPath)) {
 				return true;
 			}
-	
+			
 			// Fallback: copy then delete
 			$this->copy($sourcePath, $destPath, $createDest);
 			$this->delete($sourcePath);
-	
+			
 			return true;
 		}
-	
+		
 		/**
 		 * Rename a file in place (simple wrapper around move).
 		 */
@@ -265,10 +266,10 @@
 			$sourcePath = $this->resolvePath($source);
 			$dir        = dirname($sourcePath);
 			$destPath   = $dir . DIRECTORY_SEPARATOR . basename($newName);
-	
+			
 			return $this->move($sourcePath, $destPath);
 		}
-	
+		
 		/**
 		 * Ensure directory exists (idempotent).
 		 */
@@ -277,16 +278,16 @@
 			if (is_dir($path)) {
 				return true;
 			}
-	
+			
 			$mode     = $mode ?? 0755;
 			$oldUmask = umask(0);
 			$result   = @mkdir($path, $mode, $recursive);
 			umask($oldUmask);
-	
+			
 			if (!$result && !is_dir($path)) {
 				throw new RuntimeException("Failed to create directory: {$path}");
 			}
-	
+			
 			return true;
 		}
 	}

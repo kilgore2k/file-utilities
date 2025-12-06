@@ -29,6 +29,7 @@
 					$filtered[] = $segment;
 				}
 			}
+			
 			return implode(DIRECTORY_SEPARATOR, $filtered);
 		}
 		
@@ -38,6 +39,7 @@
 			if ($dotPos === false) {
 				return $path . $appendix;
 			}
+			
 			return substr($path, 0, $dotPos) . $appendix . substr($path, $dotPos);
 		}
 	}
